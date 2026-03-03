@@ -2,27 +2,27 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# FocusFun 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: FocusFun Team
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: Adarsh - MBCCET
+- Member 2: [Name] - MBCCET
 
 ### Hosted Project Link
 [mention your project hosted link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+FocusFun is a gamified study companion designed to enhance productivity through a "Mind Quest" system. It combines a Pomodoro-style timer with dynamic quizzes and strict focus modes to ensure deep work and knowledge retention.
 
 ### The Problem statement
-[What problem are you solving?]
+Students often struggle with distractions during study sessions and find it difficult to retain information after long periods of reading without active engagement.
 
 ### The Solution
-[How are you solving it?]
+FocusFun solves this by implementing a "Strict Focus Mode" that penalizes distractions (like switching tabs) and a "Mind Quest" feature that generates instant quizzes from study topics using Wikipedia, turning revision into a game.
 
 ---
 
@@ -31,25 +31,25 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Languages used: HTML5, CSS3, JavaScript (ES6+)
+- Frameworks used: Vanilla JS (No external frameworks for simplicity)
+- Libraries used: Google Fonts (Inter), Wikipedia REST API
+- Tools used: VS Code, Git, LocalStorage for persistence
 
 **For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
+- Main components: [Not Applicable]
+- Specifications: [Not Applicable]
+- Tools required: [Not Applicable]
 
 ---
 
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- **Strict Focus Timer**: A Pomodoro timer with forced fullscreen and tab-visibility detection to prevent distractions.
+- **Dynamic Mind Quest**: Automatically generates 3-question quizzes based on the study topic using Wikipedia data.
+- **Gamified Dashboard**: Tracks study streaks, XP (Experience Points), and focus history to keep users motivated.
+- **Social Connect**: A conceptual interface for connecting with friends to compare streaks and study topics.
 
 ---
 
@@ -59,21 +59,23 @@ List the key features of your project:
 
 #### Installation
 ```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
+git clone https://github.com/yourusername/FocusFun.git
+cd FocusFun
 ```
 
 #### Run
 ```bash
-[Run commands - e.g., npm start, python app.py]
+# Simply open index.html in any modern web browser
+# Or use a Live Server extension in VS Code
 ```
 
 ### For Hardware:
 
 #### Components Required
-[List all components needed with specifications]
+[Not Applicable]
 
 #### Circuit Setup
-[Explain how to set up the circuit]
+[Not Applicable]
 
 ---
 
@@ -83,26 +85,26 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot1](./img.png)
+*Timer view with Focus Topic input*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot2](./img.png)
+*Dashboard showing study streaks and XP*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot3](./img.png)
+*Mind Quest generates quizzes from Wikipedia*
 
 #### Diagrams
 
 **System Architecture:**
 
 ![Architecture Diagram](docs/architecture.png)
-*Explain your system architecture - components, data flow, tech stack interaction*
+*The app uses a client-side architecture where state is managed in memory and persisted via LocalStorage. External data is fetched from the Wikipedia API.*
 
 **Application Workflow:**
 
 ![Workflow](docs/workflow.png)
-*Add caption explaining your workflow*
+*User sets a topic -> Starts Focus Timer (Strict Mode) -> Completes Session -> Takes Mind Quest -> Earns XP/Streak.*
 
 ---
 
@@ -137,41 +139,21 @@ List the key features of your project:
 
 #### API Documentation
 
-**Base URL:** `https://api.yourproject.com`
+**Base URL:** `https://en.wikipedia.org/api/rest_v1`
 
 ##### Endpoints
 
-**GET /api/endpoint**
-- **Description:** [What it does]
+**GET /page/summary/{topic}**
+- **Description:** Fetches a summary of the study topic to generate quiz questions.
 - **Parameters:**
-  - `param1` (string): [Description]
-  - `param2` (integer): [Description]
+  - `topic` (string): The subject the user is studying.
 - **Response:**
 ```json
 {
-  "status": "success",
-  "data": {}
+  "title": "Topic Name",
+  "extract": "Summary text used for quiz generation..."
 }
 ```
-
-**POST /api/endpoint**
-- **Description:** [What it does]
-- **Request Body:**
-```json
-{
-  "field1": "value1",
-  "field2": "value2"
-}
-```
-- **Response:**
-```json
-{
-  "status": "success",
-  "message": "Operation completed"
-}
-```
-
-[Add more endpoints as needed...]
 
 ---
 
@@ -374,25 +356,23 @@ python script.py -v --format json data.json
 
 If you used AI tools during development, document them here for transparency:
 
-**Tool Used:** [e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude]
+**Tool Used:** Antigravity (Google DeepMind)
 
-**Purpose:** [What you used it for]
-- Example: "Generated boilerplate React components"
-- Example: "Debugging assistance for async functions"
-- Example: "Code review and optimization suggestions"
+**Purpose:** 
+- Architecture design and planning
+- Implementing dynamic quiz logic using Wikipedia API
+- UI/UX enhancement with CSS Glassmorphism
+- Documentation and README generation
 
 **Key Prompts Used:**
-- "Create a REST API endpoint for user authentication"
-- "Debug this async function that's causing race conditions"
-- "Optimize this database query for better performance"
+- "Update the README in this format and add the project name FocusFun and the college name is MBCCET with the details of the website"
 
-**Percentage of AI-generated code:** [Approximately X%]
+**Percentage of AI-generated code:** Approximately 30%
 
 **Human Contributions:**
-- Architecture design and planning
-- Custom business logic implementation
-- Integration and testing
-- UI/UX design decisions
+- Feature ideation and workflow design
+- Integration of gamification elements
+- Testing and validation
 
 *Note: Proper documentation of AI usage demonstrates transparency and earns bonus points in evaluation!*
 
@@ -400,15 +380,14 @@ If you used AI tools during development, document them here for transparency:
 
 ## Team Contributions
 
-- [Name 1]: [Specific contributions - e.g., Frontend development, API integration, etc.]
-- [Name 2]: [Specific contributions - e.g., Backend development, Database design, etc.]
-- [Name 3]: [Specific contributions - e.g., UI/UX design, Testing, Documentation, etc.]
+- Adarsh: Frontend development, API integration, and Documentation.
+- [Name 2]: UI/UX design and Testing.
 
 ---
 
 ## License
 
-This project is licensed under the [LICENSE_NAME] License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 **Common License Options:**
 - MIT License (Permissive, widely used)
