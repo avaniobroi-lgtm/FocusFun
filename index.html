@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFun - Level Up Your Learning</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">FOCUSFUN</div>
+            <nav id="user-nav">
+                <div id="user-info" style="display: none;">
+                    <span id="username-display"></span>
+                    <button id="logout-btn" class="btn btn-secondary"
+                        style="padding: 0.5rem 1rem; font-size: 0.9rem;">Logout</button>
+                </div>
+                <button id="login-nav-btn" class="btn btn-secondary">Login</button>
+            </nav>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="timer">Study Timer</button>
+            <button class="tab-btn" data-tab="dashboard">Dashboard</button>
+            <button class="tab-btn" data-tab="quiz">Quest Game</button>
+            <button class="tab-btn" data-tab="social">Connect</button>
+        </div>
+
+        <main id="main-content">
+            <!-- Timer Section -->
+            <section id="timer-tab" class="content-section active">
+                <div class="timer-section">
+                    <div id="active-task-container" style="margin-bottom: 2rem;">
+                        <input type="text" id="focus-topic" placeholder="What are you focusing on?" class="glass-input">
+                    </div>
+                    <div class="timer-settings">
+                        <button class="setting-chip active" data-time="25">25:00</button>
+                        <button class="setting-chip" data-time="50">50:00</button>
+                        <button class="setting-chip" data-time="5">Short Break</button>
+                        <button class="setting-chip" data-time="15">Long Break</button>
+                    </div>
+
+                    <div class="timer-display" id="display">25:00</div>
+
+                    <div class="timer-controls">
+                        <button id="start-btn" class="btn btn-primary">Start Focus</button>
+                        <button id="reset-btn" class="btn btn-secondary">Reset</button>
+                    </div>
+
+                    <div id="focus-status" style="margin-top: 2rem; color: var(--text-muted); opacity: 0;">
+                        Strict Focus Mode: Tab leaving or minimizing will be logged!
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard-tab" class="content-section" style="display: none;">
+                <div class="dashboard-grid">
+                    <div class="stat-card glass-morphism">
+                        <span class="stat-label">Current Streak</span>
+                        <div class="stat-value"><span id="streak-count">0</span> 🔥</div>
+                        <p class="stat-detail">Days of continuous learning</p>
+                    </div>
+                    <div class="stat-card glass-morphism">
+                        <span class="stat-label">Focus Score</span>
+                        <div class="stat-value"><span id="focus-score">0</span> XP</div>
+                        <p class="stat-detail">Level up by completing sessions</p>
+                    </div>
+                    <div class="stat-card glass-morphism">
+                        <span class="stat-label">Total Focus</span>
+                        <div class="stat-value"><span id="total-time">0</span> min</div>
+                        <p class="stat-detail">Total study time logged</p>
+                    </div>
+                </div>
+                <div class="history-card glass-morphism" style="margin-top: 2rem;">
+                    <h3>Recent Quests</h3>
+                    <ul id="history-list" class="styled-list">
+                        <li>Start your first session to see history!</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Quiz/Quest Section -->
+            <section id="quiz-tab" class="content-section" style="display: none;">
+                <div class="quiz-container glass-morphism">
+                    <div id="quiz-intro">
+                        <h2>Mind Quest</h2>
+                        <p>Complete a quick quiz to cement your learning and earn XP!</p>
+                        <button id="start-quiz-btn" class="btn btn-primary">Begin Quest</button>
+                    </div>
+                    <div id="quiz-active" style="display: none;">
+                        <h3 id="quiz-question">Question loading...</h3>
+                        <div id="quiz-options" class="options-grid"></div>
+                    </div>
+                    <div id="quiz-result" style="display: none;">
+                        <h2>Quest Result</h2>
+                        <div class="stat-value" id="quiz-score-display">0/3</div>
+                        <p id="quiz-summary"></p>
+                        <button id="close-quiz-btn" class="btn btn-secondary">Return to Timer</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Social Section -->
+            <section id="social-tab" class="content-section" style="display: none;">
+                <div class="social-header">
+                    <h2>Connect with Friends</h2>
+                    <button class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Invite
+                        Friend</button>
+                </div>
+                <div class="friends-list glass-morphism" style="margin-top: 1rem;">
+                    <ul class="styled-list">
+                        <li class="friend-item">
+                            <div class="friend-info">
+                                <div class="avatar">👨‍🎓</div>
+                                <div>
+                                    <div class="friend-name">Alex Studies</div>
+                                    <div class="friend-status">Studying: Physics</div>
+                                </div>
+                            </div>
+                            <div class="friend-stats">12 🔥</div>
+                        </li>
+                        <li class="friend-item">
+                            <div class="friend-info">
+                                <div class="avatar">👩‍🔬</div>
+                                <div>
+                                    <div class="friend-name">Sam Focus</div>
+                                    <div class="friend-status">Level 5 Pro</div>
+                                </div>
+                            </div>
+                            <div class="friend-stats">8 🔥</div>
+                        </li>
+                        <li class="friend-item">
+                            <div class="friend-info">
+                                <div class="avatar">🎨</div>
+                                <div>
+                                    <div class="friend-name">Jordan Design</div>
+                                    <div class="friend-status">Taking a break</div>
+                                </div>
+                            </div>
+                            <div class="friend-stats">24 🔥</div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Auth Section (Modal-like) -->
+            <section id="auth-section" class="auth-overlay" style="display: none;">
+                <div class="auth-card glass-morphism">
+                    <h2 id="auth-title">Welcome Back</h2>
+                    <p id="auth-subtitle">Log in to continue your focus journey</p>
+                    <form id="auth-form">
+                        <div class="form-group" id="username-group" style="display: none;">
+                            <label>Username</label>
+                            <input type="text" id="username" placeholder="Choose a name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" id="password" required placeholder="••••••••">
+                        </div>
+                        <button type="submit" id="submit-btn" class="btn btn-primary">Login</button>
+                    </form>
+                    <p id="toggle-text">Don't have an account? <button id="toggle-btn">Register</button></p>
+                    <div id="error-display" class="error-msg" style="display: none;"></div>
+                    <button id="close-auth" class="btn btn-secondary"
+                        style="margin-top: 1rem; width: 100%;">Cancel</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
